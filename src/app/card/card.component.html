@@ -1,0 +1,17 @@
+<h1>Tipos de Teclado</h1>
+<mat-card class="example-card mt-3" [ngClass]="cardClasses()">
+  <mat-card-header>
+      <mat-card-title>{{ teclado.Title }}</mat-card-title>
+      <mat-card-subtitle>{{ teclado.Description }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image style="width:600px" src="{{ teclado.Poster }}" *ngIf="isImageAvailable(); else noImage">
+  <ng-template #noImage>
+      <p>No image available</p>
+  </ng-template>
+  <mat-card-content>
+      <div>{{teclado.Category}}</div>
+  </mat-card-content>
+  <mat-card-actions>
+      <button (click)="onCardClicked()" class="btn btn-primary">Comprar</button>
+  </mat-card-actions>
+</mat-card>
